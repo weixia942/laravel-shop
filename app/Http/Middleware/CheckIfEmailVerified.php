@@ -16,7 +16,7 @@ class CheckIfEmailVerified
     public function handle($request, Closure $next)
     {
       if(!$request->user()->email_verified){
-        //如果时ajax 请求，则通过json返回
+        //如果是ajax 请求，则通过json返回
         if ($request->expectsJson()) {
           return response()->json(['msg' => '请先验证邮箱!'], 400);
         }
