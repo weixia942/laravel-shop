@@ -17,7 +17,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','email_verified'
     ];
-    
+
     protected $casts = [
         'email_verified' => 'boolean',
     ];
@@ -29,4 +29,10 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function addresses()
+    {
+      return $this->hasMany(UserAddress::class);
+    }
+    
 }
